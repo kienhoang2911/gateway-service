@@ -19,6 +19,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.springframework.cloud:spring-cloud-starter-gateway:4.0.7")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client:3.1.4")
+
 
 }
 
