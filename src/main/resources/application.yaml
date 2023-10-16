@@ -7,21 +7,10 @@ spring:
     gateway:
       routes:
         - id: resources
-          uri: http://localhost:8081
+          uri: http://localhost:8082
           predicates:
             - Path=/product/**
-          filters:
-            TokenRelay=
-  security:
-    oauth2:
-      client:
-        registration:
-          gateway:
-            provider: my-provider
-            client-id: 2e053c4d697e9887dca2
-            client-secret: c51e5160d2bdd5ab774d7dd1a40d919809c8e19c
-            authorization-grant-type: client_credentials
-            redirect-uri: "http://localhost:8086/login/oauth2/code/github"
-        provider:
-          my-provider:
-            issuer-uri: http://backend-auth:8086
+        - id: auth
+          uri: http://localhost:8086
+          predicates:
+            - Path=/auth/**
